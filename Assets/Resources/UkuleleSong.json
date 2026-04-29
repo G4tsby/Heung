@@ -1,0 +1,14 @@
+{
+  "songTitle": "Simple Ukulele",
+  "bpm": 60,
+  "notes": [
+    { "time": 2.0, "type": "Down" },
+    { "time": 4.0, "type": "Up" },
+    { "time": 6.0, "type": "Down" },
+    { "time": 8.0, "type": "Up" },
+    { "time": 12.0, "type": "Down" },
+    { "time": 14.0, "type": "Up" },
+    { "time": 16.0, "type": "Down" },
+    { "time": 18.0, "type": "Up" }
+  ]
+}
