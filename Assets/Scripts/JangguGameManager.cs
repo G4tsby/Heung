@@ -34,6 +34,8 @@ public class JangguGameManager : MonoBehaviour
     [SerializeField]
     private TMP_Text resultText;
 
+    public event System.Action<string, float> RhythmEmitted;
+
     private PendingHand pendingHand = PendingHand.None;
     private Coroutine pendingSingleHitRoutine;
 
@@ -120,6 +122,7 @@ public class JangguGameManager : MonoBehaviour
         if (resultText != null)
             resultText.text = english;
 
+        RhythmEmitted?.Invoke(english, Time.time);
         Debug.Log($"[JangguRhythm] {syllable}", this);
     }
 
