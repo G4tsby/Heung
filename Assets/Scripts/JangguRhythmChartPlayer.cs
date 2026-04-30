@@ -15,8 +15,7 @@ public class JangguRhythmChartPlayer : MonoBehaviour
 
     private enum JudgeResult
     {
-        Perfect,
-        Good,
+        Hit,
         Miss
     }
 
@@ -88,13 +87,10 @@ public class JangguRhythmChartPlayer : MonoBehaviour
 
     [Header("Timing")]
     [SerializeField, Min(0.1f)]
-    private float travelTime = 1.5f;
+    private float travelTime = 2.2f;
 
     [SerializeField, Min(0.01f)]
-    private float perfectWindow = 0.08f;
-
-    [SerializeField, Min(0.01f)]
-    private float goodWindow = 0.16f;
+    private float hitWindow = 0.16f;
 
     [Header("UI")]
     [SerializeField]
@@ -292,10 +288,8 @@ public class JangguRhythmChartPlayer : MonoBehaviour
             return;
 
         var error = Mathf.Abs(songTime - note.hitTimeSec);
-        if (error <= perfectWindow)
-            ApplyJudge(note, JudgeResult.Perfect);
-        else if (error <= goodWindow)
-            ApplyJudge(note, JudgeResult.Good);
+        if (error <= hitWindow)
+            ApplyJudge(note, JudgeResult.Hit);
     }
 
     private RuntimeNote FindBestNote(NoteLane lane, float songTime)
@@ -309,7 +303,7 @@ public class JangguRhythmChartPlayer : MonoBehaviour
                 continue;
 
             var error = Mathf.Abs(songTime - note.hitTimeSec);
-            if (error > goodWindow || error >= bestError)
+            if (error > hitWindow || error >= bestError)
                 continue;
 
             best = note;
@@ -327,7 +321,7 @@ public class JangguRhythmChartPlayer : MonoBehaviour
             if (note.isJudged)
                 continue;
 
-            if (songTime - note.hitTimeSec > goodWindow)
+            if (songTime - note.hitTimeSec > hitWindow)
                 ApplyJudge(note, JudgeResult.Miss);
         }
     }
@@ -338,9 +332,7 @@ public class JangguRhythmChartPlayer : MonoBehaviour
         if (note.view != null)
             Destroy(note.view.gameObject);
 
-        if (judge == JudgeResult.Miss)
-            _combo = 0;
-        else
+        if (judge != JudgeResult.Miss)
             _combo++;
 
         judgeText?.SetText(judge.ToString().ToUpperInvariant());

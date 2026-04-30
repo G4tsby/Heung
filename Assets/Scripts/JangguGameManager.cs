@@ -30,6 +30,9 @@ public class JangguGameManager : MonoBehaviour
     [SerializeField, Min(0.01f)]
     private float bothHandWindow = 0.08f;
 
+    [SerializeField, Min(0f)]
+    private float deongLockout = 0.1f;
+
     [Header("UI")]
     [SerializeField]
     private TMP_Text resultText;
@@ -38,6 +41,7 @@ public class JangguGameManager : MonoBehaviour
 
     private PendingHand pendingHand = PendingHand.None;
     private Coroutine pendingSingleHitRoutine;
+    private float nextInputAcceptTime;
 
     private void Awake()
     {
@@ -66,6 +70,9 @@ public class JangguGameManager : MonoBehaviour
 
     private void OnJangguHit(JangguHitReceiver.HitInfo hitInfo)
     {
+        if (Time.time < nextInputAcceptTime)
+            return;
+
         if (IsLeftHit(hitInfo.stickId))
         {
             HandleHandHit(PendingHand.Left);
@@ -94,6 +101,7 @@ public class JangguGameManager : MonoBehaviour
         {
             CancelPendingSingleHit();
             EmitRhythm("덩");
+            nextInputAcceptTime = Time.time + deongLockout;
             return;
         }
 
