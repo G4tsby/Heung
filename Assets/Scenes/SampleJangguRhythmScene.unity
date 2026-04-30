@@ -378,8 +378,8 @@ Transform:
   m_GameObject: {fileID: 372704474}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.991, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.3, z: 0.8}
+  m_LocalPosition: {x: -0, y: 0.878, z: 0}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1522594828}
@@ -2377,6 +2377,7 @@ MonoBehaviour:
   leftStickId: LeftStick
   rightStickId: RightStick
   bothHandWindow: 0.08
+  deongLockout: 0.1
   resultText: {fileID: 1966148039}
 --- !u!4 &1657422798
 Transform:
@@ -2530,8 +2531,8 @@ Transform:
   m_GameObject: {fileID: 1770032661}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.998, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.3, z: 0.8}
+  m_LocalPosition: {x: 0, y: -0.852, z: 0}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1522594828}
@@ -2672,9 +2673,8 @@ MonoBehaviour:
   - lane: 2
     spawnPoint: {fileID: 1640070668}
     judgePoint: {fileID: 1662259221}
-  travelTime: 1.5
-  perfectWindow: 0.08
-  goodWindow: 0.16
+  travelTime: 2.2
+  hitWindow: 0.24
   judgeText: {fileID: 315426464}
   comboText: {fileID: 948848238}
 --- !u!4 &1778218314
