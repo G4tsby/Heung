@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "title": "Temp Practice Chart",
+    "audioResource": ""
+  },
+  "timing": {
+    "bpm": 120.0,
+    "offsetSec": 3.0
+  },
+  "notes": [
+    { "beat": 4.0, "type": "Left" },
+    { "beat": 6.0, "type": "Left" },
+    { "beat": 8.0, "type": "Left" },
+    { "beat": 10.0, "type": "Left" },
+    { "beat": 12.0, "type": "Right" },
+    { "beat": 14.0, "type": "Right" },
+    { "beat": 16.0, "type": "Right" },
+    { "beat": 18.0, "type": "Right" },
+    { "beat": 20.0, "type": "Both" },
+    { "beat": 22.0, "type": "Both" },
+    { "beat": 24.0, "type": "Both" },
+    { "beat": 26.0, "type": "Both" }
+  ]
+}
